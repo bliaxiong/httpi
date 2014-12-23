@@ -10,7 +10,7 @@ module HTTPI
 
       VERIFY_MODES = [:none, :peer, :fail_if_no_peer_cert, :client_once]
       CERT_TYPES = [:pem, :der]
-      SSL_VERSIONS = OpenSSL::SSL::SSLContext::METHODS.reject { |method| method.match /server|client/ }.sort.reverse
+      SSL_VERSIONS = [:TLSv1, :TLSv1_server, :TLSv1_client, :SSLv2, :SSLv2_server, :SSLv2_client, :SSLv3, :SSLv3_server, :SSLv3_client, :SSLv23, :SSLv23_server, :SSLv23_client, :TLS, :"TLSv1.1"].reject { |method| method.match /server|client/ }.sort.reverse
 
       # Returns whether SSL configuration is present.
       def present?
